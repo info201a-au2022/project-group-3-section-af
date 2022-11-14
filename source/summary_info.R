@@ -46,7 +46,8 @@ summary_info$common_fatality_type <- fatal_encounters %>%
   filter(Date..Year. != 2100) %>% 
   count(Cause.of.death) %>% 
   mutate(percent = round(n / sum(n) * 100, 2)) %>% 
-  filter(percent == max(percent))
+  filter(percent == max(percent)) %>% 
+  rename(year = Date..Year.)
 
 # Gathers the most common cause of police deaths, taking count of deaths and
 # percentage of total deaths of the year 2000-2016
@@ -64,7 +65,8 @@ summary_info$victims_police_killed_race <- police_killings %>%
   group_by(Date.of.Incident..month.day.year.) %>% 
   filter(Victim.s.race != "Unknown race") %>% 
   count(Victim.s.race) %>% 
-  mutate(percent = round(n / sum(n) * 100, 2))
+  mutate(percent = round(n / sum(n) * 100, 2)) %>% 
+  rename(year = Date.of.Incident..month.day.year.)
   
 # Counts up the number of casualties of each state via shootings from
 # 2015-2020 from the Washington Post data
@@ -72,7 +74,8 @@ summary_info$victims_police_killed_race <- police_killings %>%
 summary_info$state_casualties <- washington_post_shootings %>% 
   group_by(date) %>% 
   count(state) %>% 
-  mutate(percent = round(n / sum(n) * 100, 2))
+  mutate(percent = round(n / sum(n) * 100, 2)) %>% 
+  rename(year = date)
 
   
   
