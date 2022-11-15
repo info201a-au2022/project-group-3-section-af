@@ -10,9 +10,11 @@ police_deaths <- read.csv("https://raw.githubusercontent.com/info201a-au2022/pro
 
 police_killings <- read.csv("https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-af/main/data/Part%201%20data/police_killings_MPV.csv")
 police_killings$Date.of.Incident..month.day.year. <- format(as.Date(police_killings$Date.of.Incident..month.day.year., format = "%d/%m/%Y"), "%Y")
+police_killings$Date.of.Incident..month.day.year. <- as.integer(police_killings$Date.of.Incident..month.day.year.)
 
 washington_post_shootings <- read.csv("https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-af/main/data/Part%201%20data/shootings_wash_post.csv")
 washington_post_shootings$date <- format(as.Date(washington_post_shootings$date, format = "%Y-%m-%d"), "%Y")
+washington_post_shootings$date <- as.integer(washington_post_shootings$date)
 
 adult_arrests <- read.csv("https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-af/main/data/Part%202%20data/crime_data/arrests_national_adults.csv")
 
@@ -45,7 +47,7 @@ summary_info$common_fatality_type <- fatal_encounters %>%
   filter(Cause.of.death != "") %>% 
   filter(Date..Year. != 2100) %>% 
   count(Cause.of.death) %>% 
-  mutate(percent = round(n / sum(n) * 100, 2)) %>% 
+  mutate(percent = round(n / sum(n) * 100, 0)) %>% 
   filter(percent == max(percent)) %>% 
   rename(year = Date..Year.)
 
@@ -56,7 +58,7 @@ summary_info$common_police_fatality <- police_deaths %>%
   group_by(year) %>% 
   filter(between(year, 2000, 2016)) %>% 
   count(cause_short) %>% 
-  mutate(percent = round(n / sum(n) * 100, 2)) %>% 
+  mutate(percent = round(n / sum(n) * 100, 0)) %>% 
   filter(percent == max(percent))
 
 # Gathers the number of police killings by race in percentages from 2013-2020
@@ -65,19 +67,18 @@ summary_info$victims_police_killed_race <- police_killings %>%
   group_by(Date.of.Incident..month.day.year.) %>% 
   filter(Victim.s.race != "Unknown race") %>% 
   count(Victim.s.race) %>% 
-  mutate(percent = round(n / sum(n) * 100, 2)) %>% 
+  mutate(percent = round(n / sum(n) * 100, 0)) %>% 
   rename(year = Date.of.Incident..month.day.year.)
-  
+
 # Counts up the number of casualties of each state via shootings from
 # 2015-2020 from the Washington Post data
 
 summary_info$state_casualties <- washington_post_shootings %>% 
   group_by(date) %>% 
   count(state) %>% 
-  mutate(percent = round(n / sum(n) * 100, 2)) %>% 
+  mutate(percent = round(n / sum(n) * 100, 0)) %>% 
   rename(year = date)
 
-  
   
   
   
