@@ -13,14 +13,22 @@ source("fatal_encounters.R")
 source("table.R")
 library("knitr")
 library(ggplot2)
+library("gridExtra")
+library("ggridges")
 ```
 
 ## Overview
 This is a brief report identifying any significant patterns regarding police violence, criminal activity, racial equity, and other factors influencing these activities in the United state. The data reveals the statistics of arrests, fatal encounters and death of victims that are categorized by racial and gender identity.
-Here are the report counts by different race since 1994 to 2016
+
+Here are the various report counts across the year 2000-2016.
 ```{r summary_values, echo = FALSE}
 kable(summary_values)
 ```
+This table displays the total arrests for each year, followed by details of the sums of arrests
+by race and gender. There is also information involving the causes of deaths within each criminal
+situation, for both the victims and the police enforcement. These cause of death statistics are followed with the most common source of death, followed by the amount of casualties from those
+methods and the percentage of those values in comparison to the other methods. In identifying the numbers of these factors, we can sense a pattern in how the data will continue to trend, and have a clearer focus in what to inspect for future changes in our community.
+
 ## Plots
 Reported cases of police killings (by shooting) across race, gender and age. These charts cover the years 2015-2020.
 ```{r race_pie, r age_pie, r gender_pie, echo=FALSE}
