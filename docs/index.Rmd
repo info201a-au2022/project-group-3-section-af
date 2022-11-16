@@ -1,54 +1,96 @@
 ---
-title: "Your Project Title"
-author: "project team members"
-date: "1/22/2022"
+title: "B.1: Police Violence and Racial Inequity"
+author: "Justin, Jinsu, Bryce"
 output: html_document
+date: "2022-11-14"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+source("../source/summary_info.R")
+source("../source/Bar_Graph_Crime_Arrest_National.R")
+source("../source/Pie_Chart_Police_Killings.R")
+source("../source/fatal_encounters.R")
+source("../source/table.R")
+library("knitr")
+library(ggplot2)
+library("gridExtra")
+library("ggridges")
 ```
 
-## What is this file for?
+## Overview
+This is a brief report identifying any significant patterns regarding police violence, criminal activity, racial equity, and other factors influencing these activities in the United state. The data reveals the statistics of arrests, fatal encounters and death of victims that are categorized by racial and gender identity.
 
-* This file will eventually become your project report for **P02: Exploratory Data Analysis**. Specifically, you will write rmarkdown to report your exploratory data analysis.
+Here are the various report counts across the year 2000-2016.
+```{r summary_values, echo = FALSE}
+kable(summary_values)
+```
+This table displays the total arrests for each year, followed by details of the sums of arrests
+by race and gender. There is also information involving the causes of deaths within each criminal
+situation, for both the victims and the police enforcement. These cause of death statistics are followed with the most common source of death, followed by the amount of casualties from those
+methods and the percentage of those values in comparison to the other methods. In identifying the numbers of these factors, we can sense a pattern in how the data will continue to trend, and have a clearer focus in what to inspect for future changes in our community.
 
-* Please see Canvas for more details.
-
-## ACCESSING THE /source DIRECTORY
-### Example 1: Source some code and run a function
-```{r}
-# Example 1: Note relative path, which can be read: Up one
-# directory(..), down into source (/source), and 
-# then "source" an R file (data_access.R)
-source("../source/data_access.R")
-data_access_test()
+## Plots
+Reported cases of police killings (by shooting) across race, gender and age. These charts cover the years 2015-2020.
+```{r race_pie, r age_pie, r gender_pie, echo=FALSE}
+race_pie
+age_pie
+gender_pie
 ```
 
-### Example 2: Initialize a variable and then use it
-```{r}
-# Example 1: This function was "sourced" above
-msg <- data_access_test(" Morgan!")
+All three of the pie charts represent reported cases of police killings (by shooting) across three metrics: race, gender and age. These charts cover the years 2015-2020. As shown by the pies, white people have been killed the most by police. However, white people make up 75% of the U.S. population, while Black people make up only 13%. Because of this, it's clear to see that Black victims are killed at a disproportionate rate compared to white victims. When looking at the age graph, it's clear that younger people are killed 
+much more by the police. Similarly, the gender pie chart shows men are much more likely to die at the hands of the police.
+
+```{r race_data, echo = FALSE}
+ggplot(race_data) + 
+  geom_col(mapping = aes(x = year, y = reports, fill = race),
+           position = "dodge") +
+  coord_cartesian(xlim = range(race_data$year), 
+                  ylim = range(race_data$reports)) +
+  scale_y_continuous(labels = comma, 
+                     breaks = seq(0, max(race_data$reports), 1000000)) +
+  scale_x_continuous(breaks = seq(min(race_data$year), max(race_data$year), 1)) +
+  labs(title = "Total Number of Adult Arrests by\nRace in the U.S.", x = "Year",
+       y = "Reports", fill = "Race") +
+  scale_fill_discrete(labels = c("American Indians", "Asian & Pacific Islander",
+                                 "Black", "White")) +
+  theme(plot.title = element_text(hjust = 0.5),
+        legend.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(angle = 90, size = 5))  
+
+```
+```{r sex_data, echo = FALSE}
+ggplot(sex_data) +
+  geom_col(mapping = aes(x = year, y = reports, fill = sex), position = "dodge") +
+  coord_cartesian(xlim = range(sex_data$year), ylim = range(sex_data$reports)) +
+  scale_y_continuous(labels = comma,
+                     breaks = seq(0,  max(sex_data$reports), 1000000)) +
+  scale_x_continuous(breaks = seq(min(sex_data$year), max(sex_data$year), 1)) +
+  labs(title = "Total Number of Adult Arrests by\nSex in the U.S.", x = "Year",
+       y = "Reports",
+       fill = "Sex") +
+  scale_fill_manual(labels = c("Female", "Male"), 
+                    values = c("#CC79A7", "#56B4E9")) +
+  theme(plot.title = element_text(hjust = 0.5), 
+        legend.title = element_text(hjust = 0.5),
+        axis.text.x = element_text(angle = 90, size = 5))
 ```
 
-> `r msg` Hope you have a good day!! 
+Both of these graphs illustrate the total number of adult arrests reported in the U.S. by the agencies from 1994-2016, with one graph representing the proportions of arrests by gender and the other graph showing the proportions by race. From these bar graphs,there is a hugely noticeable gap between the division of arrests against males versus females, and a stronger association of arrests being targeted towards the White & Black community as opposed to the Asian, Pacific Islander, and American Indians.
 
-## ABOUT THIS FILE: 
+```{r df_1, echo = FALSE}
+ggplot(data = df_1, aes(x = Date, y = race, fill = race)) +
+  geom_density_ridges(stat="binline", bins=10) +
+  theme_ridges() +
+  ggtitle("Fatal encounters") +
+  theme(legend.position = "none")
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+ggplot(data = df_1, aes(x = Date, y = gender, fill=gender)) +
+  geom_density_ridges() +
+  theme_ridges() +
+  theme(legend.position = "none")
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+This graph illustrate the racial statistics and statistics of race and gender for fatal encounters in the United States from 1/1/00 to 8/18/20.The fatal encounters of Native American/Alaskan had been increasing while that of Middle Eastern had been decreasing in recent years.
+Moreover the number of Transgender fatal encounters has rapidly increased compared to other genders.
