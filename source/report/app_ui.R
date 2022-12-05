@@ -6,13 +6,13 @@ library(knitr)
 Home <- tabPanel(
   "About",
   fluidPage(
-  includeMarkdown("home.rmd"))
+  includeMarkdown("home.Rmd"))
   )
 
 About <- tabPanel(
   "More about...",
   mainPanel(
-  includeMarkdown("Mabout.rmd"))
+  includeMarkdown("Mabout.Rmd"))
   )
 
 
@@ -82,7 +82,7 @@ summary <- tabPanel(
 )
 
 pie_chart <- tabPanel(
-  "Police shootings",
+  "Police Shootings",
   titlePanel("police shootings (fatal) across race and gender"),
   sidebarLayout(
     sidebarPanel(
@@ -115,7 +115,7 @@ pie_chart <- tabPanel(
 )
 
 wave_chart <- tabPanel(
-  "Fatal encounters",
+  "Fatal Encounters",
   titlePanel(
     "racial and gender statistics
       of fatal encounters in the United States"
