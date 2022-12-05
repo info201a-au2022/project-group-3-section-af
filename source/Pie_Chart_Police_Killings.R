@@ -2,18 +2,22 @@ library(gridExtra)
 library(ggplot2)
 library(tidyverse)
 library(dplyr)
+library(shiny)
+library(treemapify)
 shootings <- read.csv('https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-af/main/data/Part%201%20data/shootings_wash_post.csv')
 
+shootings$race[shootings$race==""] <- "NA"
+shootings$gender[shootings$gender==""] <- "NA"
 #Shootings by race, gender, and age
 
 shooting_by_race <-
   shootings %>%
-  group_by(race, na.rm = TRUE) %>%
+  group_by(race) %>%
   summarise(name_count=n())
 
 shooting_by_gender <- 
   shootings %>%
-  group_by(gender, na.rm = TRUE)%>%
+  group_by(gender)%>%
   summarise(name_count=n())
 
 shooting_by_age <-
@@ -27,15 +31,15 @@ Police_Shootings_By_Gender_2015_to_2020 <- shooting_by_gender$name_count
 par(mfrow=c(1,3))   
 
 race_pie<-ggplot(shooting_by_race, aes(x="", y=Police_Shootings_By_Race_2015_to_2020, fill=race)) +
-  geom_bar(stat="identity", width=1) + 
+  geom_bar(stat="identity", width=1, color = "black") + 
   coord_polar("y", start=0)
 
 age_pie<-ggplot(shooting_by_age, aes(x="", y=Police_Shootings_By_Age_2015_to_2020, fill=age)) + 
-  geom_bar(stat="identity", width=1) + 
+  geom_bar(stat="identity", width=1, color = "black") + 
   coord_polar("y", start=0)
 
 gender_pie<-ggplot(shooting_by_gender, aes(x="", y=Police_Shootings_By_Gender_2015_to_2020, fill=gender)) +
-  geom_bar(stat="identity", width=1) + 
+  geom_bar(stat="identity", width=1, color = "black") + 
   coord_polar("y", start=0)
 
 grid.arrange(race_pie, age_pie, gender_pie, ncol=3)
