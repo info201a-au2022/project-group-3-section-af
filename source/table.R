@@ -29,7 +29,7 @@ colnames(summary_values) <- c("Year",
                               )
 
 # turn data frame into table
-kable(summary_values)
+# kable(summary_values)
 
 
 

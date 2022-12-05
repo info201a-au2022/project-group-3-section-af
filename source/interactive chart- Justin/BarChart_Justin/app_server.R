@@ -24,6 +24,10 @@ min_year <- min(df_2$year)
 # gather maximum year for slider range 
 max_year <- max(df_2$year)
 
+# Code to create data table for summary page
+source("../../summary_info.R")
+source("../../table.R")
+
 # server
 
 server <- function(input, output) {
@@ -64,5 +68,9 @@ server <- function(input, output) {
               axis.text.x = element_text(angle = 90, size = 5))
     )
   })
+  
+  # Create data table for summary page
+  
+  output$data_table <- renderDataTable(summary_values)
   
 }
