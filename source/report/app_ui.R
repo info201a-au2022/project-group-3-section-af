@@ -1,7 +1,20 @@
 library(shiny)
 library(shinythemes)
+library(knitr)
 
-# Bar Chart Tab
+
+Home <- tabPanel(
+  "About",
+  fluidPage(
+  includeMarkdown("home.rmd"))
+  )
+
+About <- tabPanel(
+  "More about...",
+  mainPanel(
+  includeMarkdown("Mabout.rmd"))
+  )
+
 
 barChart <- tabPanel(
   "Criminal Arrests",
@@ -68,14 +81,79 @@ summary <- tabPanel(
   )
 )
 
+pie_chart <- tabPanel(
+  "Police shootings",
+  titlePanel("police shootings (fatal) across race and gender"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("UseStatistic", "Use Statistic:", choices = c("Race","Gender")),
+      checkboxGroupInput("Year", label = h3("Year"),
+                         choices = list(2015,2016,2017,2018,2019,2020),
+                         selected = 2015),
+      hr(),
+      
+      hr(),
+      fluidRow(
+        
+        
+        column(4, verbatimTextOutput("value")),
+        column(4, verbatimTextOutput("Years")))
+      
+    ),
+    mainPanel(
+      tableOutput("Year"),
+      #plotOutput(outputId = "distPlot"),
+      plotOutput("distPie"), #pie in server needs this call
+      tableOutput("table"),
+      h4( p("All three of the pie charts represent reported cases of police killings (by shooting) across three metrics: race, gender and age.
+            These charts cover the years 2015-2020. As shown by the pies, white people have been killed the most by police. However, white people
+            make up 75% of the U.S. population, while Black people make up only 13%. Because of this, it's clear to see that Black victims are 
+            killed at a disproportionate rate compared to white victims. When looking at the age graph, it's clear that younger people are killed 
+            much more by the police. Similarly, the gender pie chart shows men are much more likely to die at the hands of the police."))
+    )
+  )
+)
+
+wave_chart <- tabPanel(
+  "Fatal encounters",
+  titlePanel(
+    "racial and gender statistics
+      of fatal encounters in the United States"
+  ),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("raceorsex", "select racial/sex data",
+                     choices = c("Sex","Race"),
+                    selected = "Race"),
+      #selectInput("dateRange", 
+                     #label = "select start year",
+                     #choices = 2000:2018
+                    #)
+      ),
+    mainPanel(
+      plotOutput("wave"),
+      h4(p("This graph illustrate the racial and gender statistics
+            for fatal encounters in the United States from 1/1/00 to 8/18/20. 
+            The fatal encounters of Native American/Alaskan had been increasing while
+            that of Middle Eastern had been decreasing in recent years."))
+    )
+  )
+)
+
 # ui, using tabPanel
 # Remove "header" code when porting over to final UI
 
-ui <- navbarPage(
+ui <- fluidPage(
+  navbarPage(title = "Police Violence and Racial Inequity in the United States",
   theme = shinytheme("cosmo"),
-  "INFO 201 AF- Group 3",
+  tabPanel(title = "INFO 201 AF- Group 3",
+           mainPanel(Home)),
   barChart,
-  summary
+  pie_chart,
+  wave_chart,
+  summary,
+  About
+)
 )
 
 

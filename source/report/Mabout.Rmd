@@ -1,0 +1,21 @@
+---
+output: 
+  html_document:
+    theme: journal
+---
+
+### Limitations
+
+With this dataset, it is not sufficient to demonstrate police violence and racial equity. To demonstrate this more accurately, we need a broader source such as the statistics of police overreaction in arresting citizens and the type of victims according to that. Moreover, categorizing this dataset based on the threats to the police officer is necessary to figure out whether the action from the police officer was from self-defense or was violence from racial discrimination. To do this, find the data such as the number of innocent citizens killed by police officers' misjudgment and statistics of cases of excessive arrest and the number of victims. Moreover, finding more recent data is important to provide a vital source of police-related violence since the dataset contains data until August 2015.
+
+### Acknowledgments
+
+We would like to use this short section as a quick shout out to John M., who created the data sets we are utilizing for our assignment. His data will help us create a clear and concise project that we hope turns out very well.
+
+### References
+
+Zero, C. (2022). Mapping police violence. Mapping Police Violence. Retrieved October 30, 2022, from https://mappingpoliceviolence.org/
+
+(2015, May 7). Taking a stand against racial injustice and police brutality. FSI. Retrieved October 30, 2022, from https://fsi.stanford.edu/content/racial-injustice-and-police-brutality
+
+Gilbert, G. (2019, September 5). Meet the families affected by police violence who are organizing to stop the killing. Waging Nonviolence. Retrieved October 30, 2022, from https://wagingnonviolence.org/2015/05/meet-families-affected-police-violence-organizing-stop-killing/

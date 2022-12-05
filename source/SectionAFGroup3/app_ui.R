@@ -27,8 +27,7 @@ library(shinythemes)
               year and illustrate the numbers through racial and sex identification. With
               the visualization, we can determine how the focus has changed over the past years."))
           )
-        )
-      )
+        ))
 
 # Summary Takeaway Page (Justin)
 
@@ -67,6 +66,31 @@ library(shinythemes)
           )
         )
       )
+      
+pie_chart <- tabPanel(
+        "Shootings",
+        titlePanel("Police shootings (fatal) across race and gender"),
+        sidebarLayout(
+          sidebarPanel(
+            selectInput("UseStatistic", "Use Statistic:", choices = c("Race","Gender")),
+            checkboxGroupInput("Year", label = h3("Year"),
+                               choices = list(2015,2016,2017,2018,2019,2020)),
+            hr(),
+            
+            hr(),
+            fluidRow(
+              column(4, verbatimTextOutput("value")),
+              column(4, verbatimTextOutput("Years")))
+            
+          ),
+          mainPanel(
+            tableOutput("Year"),
+            #plotOutput(outputId = "distPlot"),
+            plotOutput("distPie"), #pie in server needs this call
+            tableOutput("table")
+          )
+        )
+      )
 
 # ui, using tabPanel
 
@@ -74,8 +98,8 @@ ui <- navbarPage(
   theme = shinytheme("cosmo"),
   "INFO 201 AF (Group 3)",
   # Intro Page (Bryce),
-  # Chart (Bryce),
   barChart,
+  pie_chart,
   # Chart (Jin),
   summary#,
   # Report Page (Jin)

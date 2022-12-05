@@ -10,21 +10,21 @@ fatal_encounters <- read.csv("https://raw.githubusercontent.com/info201a-au2022/
 # change to date format
 fatal_encounters$Date <- as.Date(fatal_encounters$Date.of.injury.resulting.in.death..month.day.year., "%m/%d/%Y")
 
-df_2 <- fatal_encounters %>%
+dz_2 <- fatal_encounters %>%
   group_by(Date)
 #remove the last row: the spacer row.
-df_1 <- head(df_2, -1)
-df_1$race <- df_1$Subject.s.race.with.imputations
-unique(df_1$Subject.s.gender)
+dz_1 <- head(dz_2, -1)
+dz_1$race <- dz_1$Subject.s.race.with.imputations
+unique(dz_1$Subject.s.gender)
 #Chart for Fatal encounters by race
-ggplot(data = df_1, aes(x = Date, y = race, fill = race)) +
+ggplot(data = dz_1, aes(x = Date, y = race, fill = race)) +
   geom_density_ridges(stat="binline", bins=10) +
   theme_ridges() +
   ggtitle("Fatal encounters") +
   theme(legend.position = "none")
-df_1$gender <- df_1$Subject.s.gender
+dz_1$gender <- dz_1$Subject.s.gender
 #Chart for Fatal encounters by gender
-ggplot(data = df_1, aes(x = Date, y = gender, fill=gender)) +
+ggplot(data = dz_1, aes(x = Date, y = gender, fill=gender)) +
   geom_density_ridges() +
   theme_ridges() +
   theme(legend.position = "none")
