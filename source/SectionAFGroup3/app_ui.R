@@ -1,6 +1,36 @@
 library(shiny)
 library(shinythemes)
 
+# Pie Chart Tab (Bryce)
+pieChart <- tabPanel(
+  "Police Shootings",
+  titlePanel("Fatal Police Shootings Across Race & Gender"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("UseStatistic", "Use Statistic:", choices = c("Race","Gender")),
+      checkboxGroupInput("Year", label = h3("Year"),
+                         choices = list(2015,2016,2017,2018,2019,2020)),
+      hr(),
+      
+      hr(),
+      fluidRow(
+        column(4, verbatimTextOutput("value")),
+        column(4, verbatimTextOutput("Years")))
+      
+    ),
+    mainPanel(
+      tableOutput("Year"),
+      plotOutput("distPie"),
+      h4(p("A prominent example of inequities within the policing system can 
+      be examined through data involving police shootings and fatalities. The data
+      covered shows both the statistics for race and gender and the amount of people
+      who have been killed by the police of these determinants. Utilizing the visualization
+      and table, we can see the proportionality of people killed by police of both race and gender.")),
+      tableOutput("table")
+    )
+  )
+)
+
 # Bar Chart Tab (Justin)
 
       barChart <- tabPanel(
@@ -98,6 +128,10 @@ ui <- navbarPage(
   theme = shinytheme("cosmo"),
   "INFO 201 AF (Group 3)",
   # Intro Page (Bryce),
+<<<<<<< HEAD
+=======
+  pieChart,
+>>>>>>> e9b691032b78521fde8a95eefd4a1cbc4f63998f
   barChart,
   pie_chart,
   # Chart (Jin),
