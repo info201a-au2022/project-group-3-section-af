@@ -1,6 +1,32 @@
 library(shiny)
 library(shinythemes)
 
+# Pie Chart Tab (Bryce)
+pieChart <- tabPanel(
+  "Police Shootings",
+  titlePanel("Fatal Police Shootings Across Race & Gender"),
+  sidebarLayout(
+    sidebarPanel(
+      selectInput("UseStatistic", "Use Statistic:", choices = c("Race","Gender")),
+      checkboxGroupInput("Year", label = h3("Year"),
+                         choices = list(2015,2016,2017,2018,2019,2020)),
+      hr(),
+      
+      hr(),
+      fluidRow(
+        column(4, verbatimTextOutput("value")),
+        column(4, verbatimTextOutput("Years")))
+      
+    ),
+    mainPanel(
+      tableOutput("Year"),
+      #plotOutput(outputId = "distPlot"),
+      plotOutput("distPie"), #pie in server needs this call
+      tableOutput("table")
+    )
+  )
+)
+
 # Bar Chart Tab (Justin)
 
       barChart <- tabPanel(
@@ -74,7 +100,7 @@ ui <- navbarPage(
   theme = shinytheme("cosmo"),
   "INFO 201 AF (Group 3)",
   # Intro Page (Bryce),
-  # Chart (Bryce),
+  pieChart,
   barChart,
   # Chart (Jin),
   summary#,
