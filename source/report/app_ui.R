@@ -141,19 +141,18 @@ wave_chart <- tabPanel(
 )
 
 # ui, using tabPanel
-# Remove "header" code when porting over to final UI
 
 ui <- fluidPage(
   navbarPage(title = "Police Violence and Racial Inequity in the United States",
   theme = shinytheme("cosmo"),
-  tabPanel(title = "INFO 201 AF- Group 3",
+  tabPanel(title = "Introduction",
            mainPanel(Home)),
   barChart,
   pie_chart,
   wave_chart,
   summary,
   About
-)
+  )
 )
 
 

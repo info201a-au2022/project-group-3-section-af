@@ -23,8 +23,7 @@ Keywords
 
 * Police activity
 * Racial equity
-* City budgets
-* Crimes/Arrests/Casualties by state
+* Crimes/Arrests/Casualties
 
 ## Introduction
 
