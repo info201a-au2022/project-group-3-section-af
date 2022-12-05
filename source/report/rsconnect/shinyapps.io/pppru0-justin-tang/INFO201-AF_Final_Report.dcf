@@ -5,10 +5,9 @@ account: pppru0-justin-tang
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 7818542
-bundleId: 6594599
+bundleId: 6594753
 url: https://pppru0-justin-tang.shinyapps.io/INFO201-AF_Final_Report/
-when: 1670260003.69324
-lastSyncTime: 1670260003.69328
+when: 1670261611.13197
+lastSyncTime: 1670261611.13199
 asMultiple: FALSE
 asStatic: FALSE
-ignoredFiles: home.html|home.Rmd|Mabout.html|Mabout.Rmd|summary_info.R|table.R

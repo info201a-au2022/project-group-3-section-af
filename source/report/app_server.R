@@ -28,8 +28,8 @@ min_year <- min(df_2$year)
 max_year <- max(df_2$year)
 
 # Code to create data table for summary page
-source("../summary_info.R")
-source("../table.R")
+source("summary_info.R")
+source("table.R")
 
 shootings <- read.csv("https://raw.githubusercontent.com/info201a-au2022/project-group-3-section-af/main/data/Part%201%20data/shootings_wash_post.csv")
 
