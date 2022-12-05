@@ -20,8 +20,12 @@ pieChart <- tabPanel(
     ),
     mainPanel(
       tableOutput("Year"),
-      #plotOutput(outputId = "distPlot"),
-      plotOutput("distPie"), #pie in server needs this call
+      plotOutput("distPie"),
+      h4(p("A prominent example of inequities within the policing system can 
+      be examined through data involving police shootings and fatalities. The data
+      covered shows both the statistics for race and gender and the amount of people
+      who have been killed by the police of these determinants. Utilizing the visualization
+      and table, we can see the proportionality of people killed by police of both race and gender.")),
       tableOutput("table")
     )
   )
