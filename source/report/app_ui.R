@@ -3,19 +3,35 @@ library(shinythemes)
 library(knitr)
 
 
-Home <- tabPanel(
-  "About",
+# Home <- tabPanel(
+#   "About",
+#   fluidPage(
+#   includeMarkdown("home.Rmd"))
+#   )
+# 
+# About <- tabPanel(
+#   "More about...",
+#   mainPanel(
+#   includeMarkdown("Mabout.Rmd"))
+#   )
+
+# Introduction Page (turn into different page layout if needed)
+introduction <- tabPanel(
+  "Introduction",
   fluidPage(
-  includeMarkdown("home.Rmd"))
+    includeMarkdown("introduction.Rmd")
   )
+)
 
-About <- tabPanel(
-  "More about...",
-  mainPanel(
-  includeMarkdown("Mabout.Rmd"))
+# Report Page
+report <- tabPanel(
+  "Report",
+  fluidPage(
+    includeMarkdown("report.Rmd")
   )
+)
 
-
+# Criminal Arrests bar chart (Justin)
 barChart <- tabPanel(
   "Criminal Arrests",
   titlePanel(
@@ -43,7 +59,7 @@ barChart <- tabPanel(
   )
 )
 
-# Summary Takeaway Page
+# Summary Takeaway Page (Justin)
 
 summary <- tabPanel(
   "Summary",
@@ -81,9 +97,10 @@ summary <- tabPanel(
   )
 )
 
+# Police shootings pie chart (Bryce)
 pie_chart <- tabPanel(
   "Police Shootings",
-  titlePanel("police shootings (fatal) across race and gender"),
+  titlePanel("Police Shootings (Fatal) Across Race and Gender"),
   sidebarLayout(
     sidebarPanel(
       selectInput("UseStatistic", "Use Statistic:", choices = c("Race","Gender")),
@@ -114,11 +131,12 @@ pie_chart <- tabPanel(
   )
 )
 
+# Fatal Encounters wave chart (Jinsu)
 wave_chart <- tabPanel(
   "Fatal Encounters",
   titlePanel(
-    "racial and gender statistics
-      of fatal encounters in the United States"
+    "Racial and Gender Statistics
+      of Fatal Encounters in the United States"
   ),
   sidebarLayout(
     sidebarPanel(
@@ -142,17 +160,16 @@ wave_chart <- tabPanel(
 
 # ui, using tabPanel
 
-ui <- fluidPage(
-  navbarPage(title = "Police Violence and Racial Inequity in the United States",
+ui <- navbarPage(
+  title = "Police Violence and Racial Inequity in the United States",
   theme = shinytheme("cosmo"),
-  tabPanel(title = "Introduction",
-           mainPanel(Home)),
+  introduction,
   barChart,
   pie_chart,
   wave_chart,
   summary,
-  About
-  )
+  report
 )
+
 
 

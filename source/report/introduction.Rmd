@@ -1,0 +1,17 @@
+---
+output: 
+  html_document:
+    theme: journal
+---
+
+```{r}
+# Brief Explanation of:
+# Problem domain
+# Research Question
+# What data was analyzed?
+# Key findings?
+# Also include visual details on background page
+
+# REMOVE CODE BLOCK WHEN DONE
+```
+

@@ -55,9 +55,10 @@ Violence could possibly be presented unequally in the country, due to the uneven
 
 One of the main addresses to the conversation of police activity is the assumption of bias in the outcome of each violent situation. Inspecting the demographic patterns of the victims, along with the demographic statistics of the whole state can help in identifying whether or not the issue of racial equity is present in each associated area, or if the cases are bordering the coincidental appearance. This allows us to search deeper into each case attentively.
 
-3. How does the status of the state's societal values align with the challenges present?
+3. How does conflict occur and how might it progress between interactions of the people and the police?
 
-Most irregular events do not occur by one effect, but rather multiple factors that create a unified problem. Some of these factors arise from the living conditions that the community faces. This includes the quality of education; the representation of people in schools and how the education system is maintained, and the control of neighborhoods; the safety from criminal activity and availability in housing for families to reside without fear and provide for their community without interruption. Political beliefs also hold some value in the effectiveness in this scenario; such as the acceptance of gun control. Understanding how these values impact the problem can lead us to finding other methods in resolving the problem, and possibly other problems related to these values.
+Conflict arrives in different methods and results in various outcomes depending on how aggressive he interactions are between the subjects. Being able to identify what types of arguments escalates into 
+fatal encounters helps in understanding how each community differs in unison, which can reveal dividing trends in how our country operates. Identifying the different manners in which conflict in resolved is important to find the breaches of security to the communities around.
 
 ## The Dataset
 
@@ -65,6 +66,26 @@ Our dataset provides police-related violence and racial equity in the United Sta
 
 By collecting this data, our dataset can report the details of citizens killed by the police. Moreover, through this dataset, we can observe police-related violence and racial equity more in-depth with the identification of police officers and citizens. Our data will benefitical for the public, organizations, and government by providing them an insight into the pattern of police violence and racial equity.
 
-## Expected Implications
+## Findings
 
-With the discoveries found in the datasets, we expect concerned citizens to inform their peers in pressing the government to address the prolonging issues in our country. More specifically, we hope to see activists provide more detailed evidence of the issue in making their claims more assertive. We also expect to see any political figures to identify the causes/correlations of the problem, and brainstorm solutions that pertains to their area of control. We hope for the bountiful communities to understand how the problem affects their daily lives, and come to a unified agreement in changing their society no matter their division of ideas. We also hope to encourage future data scientists to assist in tracking the current and future situation, so that we can review our progress and change accordingly to the data given.
+There are a lot of unequal attention when it comes to the distribution of criminal and police violence
+around the United States. When spectating the different areas of the nation, we found that the majority
+of conflict arrives around the higher populated cities in the United States. These prime examples being Los Angeles, Chicago, and New York. When we searched for which demographic groups were targeted the most, we found there to be a common theme of White, Black, and Hispanic communities having a high influence in violence, where White communities were slightly higher in their proportions as compared to the Black and Hispanic communities combined. When inspecting the sources of these numbers nationwide, we found that the areas with a majorly high racial population proportion generally held the highest occurance of violence. Surprisingly, we found that these major cities with the most amount of conflict to share a division of hatred between the different minority groups present. More White states and cities presented a higher amount conflict with White communities being the primary subject. Gender seems to have played a major role in how violence is influenced, with males being targeted far more likely than females.
+
+When looking at the trends between year gaps, there has been a general increase in violence overall. Although there has been a major divide between males and females, there has been a slight decline in the amount of males being targeted, with a slight increase in the amount of females being targeted. Violence between racial groups have remained stable, with White, Black, and Hispanic communities continuously topping the charts. Deaths occurring from these violent encounters retained a similar pattern, with an increase to Native Americans and Middle Eastern people. We also found these violent encounters to resolve with gun violence, which makes up the majority of deaths of the criminated and police forces in contact, and has continued to rise since the past decade.
+
+## Discussion
+
+## Conclusion
+
+## Acknowledgments
+
+We would like to use this short section as a quick shout out to John M., who created the data sets we are utilizing for our assignment. His data will help us create a clear and concise project that we hope turns out very well.
+
+## References
+
+Zero, C. (2022). Mapping police violence. Mapping Police Violence. Retrieved October 30, 2022, from https://mappingpoliceviolence.org/
+
+(2015, May 7). Taking a stand against racial injustice and police brutality. FSI. Retrieved October 30, 2022, from https://fsi.stanford.edu/content/racial-injustice-and-police-brutality
+
+Gilbert, G. (2019, September 5). Meet the families affected by police violence who are organizing to stop the killing. Waging Nonviolence. Retrieved October 30, 2022, from https://wagingnonviolence.org/2015/05/meet-families-affected-police-violence-organizing-stop-killing/
