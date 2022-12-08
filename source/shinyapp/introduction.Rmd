@@ -1,0 +1,35 @@
+---
+output: 
+  html_document:
+    theme: journal
+---
+
+## The Fight for Equity From Police Violence
+
+Throughout the history of the United States, there has been a trend of inequity in
+how police violence is caused and justified around the nation. In the past few years,
+this topic has been brought up in awareness from the public communities concerned with
+the unequal balance, such as the rise of the Black Lives Matter movement. Worldwide news
+has also brought attention to inequity in other countries, such as the police's violent
+responses to the Hong Kong protests.
+
+With this project, we would like to inspect the correlation of police brutality and 
+the societal values brought between our diverse communities in the country. **Such topics
+discussed in the matter include:**
+
+* The distribution of police violence and criminal activity in the United States
+* The relations between the casualty rate and the demographic backgrounds
+* How conflict occurs and the results of said conflict between the police and the citizens
+
+In answering these topics, we used various sources of data which include details 
+surrounding the identification of gender, race, and acts of violence. All datasets were
+compiled from the reporting law enforcement agencies and government facilities around
+the United States.
+
+With thorough data analysis, we concluded our search with not only alarming divisions of
+equity in the country, but with more questions in regards to the specifications of how these
+patterns occur. We hope that with the data presented, we can inform the communities around us
+about the lingering statistics of inequity and help research into the important missing details
+of our inequality. With the community's efforts, we can help push insightful changes to our government
+to make the United States a protective, equitable, and responsible country for all to reside in.
+

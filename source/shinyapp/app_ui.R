@@ -18,8 +18,13 @@ library(knitr)
 # Introduction Page (turn into different page layout if needed)
 introduction <- tabPanel(
   "Introduction",
-  fluidPage(
-    includeMarkdown("introduction.Rmd")
+  sidebarLayout(
+    sidebarPanel(
+      includeMarkdown("introduction.Rmd")
+    ),
+    mainPanel(
+      img(src = "police_violence.jpg", height = 800, width = 1066)
+    )    
   )
 )
 
